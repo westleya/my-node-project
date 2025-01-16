@@ -15,15 +15,15 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // API endpoint to receive JSON
-app.post("/api/submit", (req, res) => {
-  const receivedData = req.body;
-  console.log("Received data:", receivedData);
+app.post("/api/submit", async (req, res) => {
+    const receivedData = req.body;
+    console.log("Received data:", receivedData);
 
-  const result = processData(receivedData);
+    const result = await processData(receivedData);
 
-  // Respond back with confirmation
-  res.json(result);
-});
+    // Respond back with confirmation
+    res.json(result);
+  });
 
 // Start the server
 app.listen(PORT, () => {
