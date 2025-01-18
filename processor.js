@@ -23,13 +23,11 @@ async function processData(jsonData){
     py.stdin.write(JSON.stringify(data));
     py.stdin.end();
  
-    await sleep(1000);
-    console.log("This is a test", dataString);
     // Add your processing logic here
     if (jsonData.message){
         return {success: true, processedMessage: jsonData.message.toUpperCase()};
     } else {
-        return {success:"false", processedMessage: "No message received"};
+        return {success:"false", processedMessage: 45};
     }
 }
 

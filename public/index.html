@@ -53,7 +53,8 @@
         }
 
         const result = await response.json();
-        document.getElementById("response").textContent = `Response: ${JSON.stringify(result)}`;
+        console.log(result);
+        document.getElementById("response").textContent = JSON.stringify(result.processedMessage);
       } catch (error) {
         document.getElementById("response").textContent = `Error: ${error.message}`;
       }
